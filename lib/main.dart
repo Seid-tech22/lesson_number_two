@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_number_two/models/girls_list.dart';
+import 'package:lesson_number_two/screens/expanded_screen.dart';
 import 'package:lesson_number_two/screens/my_purchases_screen.dart';
 
 void main() {
@@ -69,12 +70,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          const SizedBox(height: 10),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.38,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.red),
+          Center(
+            child: TextButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ExpandedExampleScreen()),
+              ),
+              child: const Text('Move to another Page'),
+            ),
           ),
           Container(
             height: MediaQuery.of(context).size.height * 0.50,

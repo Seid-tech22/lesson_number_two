@@ -32,36 +32,44 @@ class _MyPurchasesScreenState extends State<MyPurchasesScreen> {
       appBar: AppBar(
         title: const Text('My Purchases'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(height: 10),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.38,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-              color: Colors.orange,
-            ),
-            child: ListView.builder(
-              itemCount: animal.length,
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: ListTile(
-                  title: Text(
-                    animal[index].weight,
-                  ),
-                  subtitle: Text(
-                    animal[index].name,
-                  ),
-                  trailing: Text(
-                    animal[index].color,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.builder(
+          itemCount: animal.length,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Card(
+              elevation: 10,
+              color: const Color.fromARGB(255, 75, 48, 233),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.10,
+                width: MediaQuery.of(context).size.width,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          animal[index].name,
+                          textAlign: TextAlign.start,
+                        ),
+                        Text(
+                          animal[index].weight,
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          animal[index].color,
+                          textAlign: TextAlign.end,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-        ],
+        ),
       ),
     );
   }
